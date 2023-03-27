@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import AuthChecker from './auth/AuthChecker'
-import { auth } from './config/firebase'
 
 function App(): JSX.Element {
 
@@ -18,7 +17,7 @@ function App(): JSX.Element {
                 key={index}
                 path={route.path}
                 element={
-                  route.protected && (!auth.currentUser) ? (
+                  route.protected ? (
                     <AuthChecker>
                       <route.component />
                     </AuthChecker>
